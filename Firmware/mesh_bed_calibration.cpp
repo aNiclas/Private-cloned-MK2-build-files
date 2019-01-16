@@ -51,26 +51,10 @@ const float bed_skew_angle_extreme = (0.25f * M_PI / 180.f);
 // Positions of the bed reference points in the machine coordinates, referenced to the P.I.N.D.A sensor.
 // The points are the following: center front, center right, center rear, center left.
 const float bed_ref_points_4[] PROGMEM = {
-    115.f - BED_ZERO_REF_X,   6.4f - BED_ZERO_REF_Y,
+    115.f - BED_ZERO_REF_X,   8.4f - BED_ZERO_REF_Y,
     216.f - BED_ZERO_REF_X, 104.4f - BED_ZERO_REF_Y,
     115.f - BED_ZERO_REF_X, 202.4f - BED_ZERO_REF_Y,
     13.f  - BED_ZERO_REF_X, 104.4f - BED_ZERO_REF_Y
-};
-
-// Positions of the bed reference points in the machine coordinates, referenced to the P.I.N.D.A sensor.
-// The points are ordered in a zig-zag fashion to speed up the calibration.
-const float bed_ref_points[] PROGMEM = {
-    13.f  - BED_ZERO_REF_X,   6.4f - BED_ZERO_REF_Y,
-    115.f - BED_ZERO_REF_X,   6.4f - BED_ZERO_REF_Y,
-    216.f - BED_ZERO_REF_X,   6.4f - BED_ZERO_REF_Y,
-
-    216.f - BED_ZERO_REF_X, 104.4f - BED_ZERO_REF_Y,
-    115.f - BED_ZERO_REF_X, 104.4f - BED_ZERO_REF_Y,
-    13.f  - BED_ZERO_REF_X, 104.4f - BED_ZERO_REF_Y,
-
-    13.f  - BED_ZERO_REF_X, 202.4f - BED_ZERO_REF_Y,
-    115.f - BED_ZERO_REF_X, 202.4f - BED_ZERO_REF_Y,
-    216.f - BED_ZERO_REF_X, 202.4f - BED_ZERO_REF_Y
 };
 
 static inline float sqr(float x) { return x * x; }
@@ -873,9 +857,9 @@ error:
 // look for the induction sensor response.
 // Adjust the  current_position[X,Y,Z] to the center of the target dot and its response Z coordinate.
 #define FIND_BED_INDUCTION_SENSOR_POINT_X_RADIUS (8.f)
-#define FIND_BED_INDUCTION_SENSOR_POINT_Y_RADIUS (6.f)
+#define FIND_BED_INDUCTION_SENSOR_POINT_Y_RADIUS (4.f)
 #define FIND_BED_INDUCTION_SENSOR_POINT_XY_STEP  (1.f)
-#define FIND_BED_INDUCTION_SENSOR_POINT_Z_STEP   (0.2f)
+#define FIND_BED_INDUCTION_SENSOR_POINT_Z_STEP   (2.f)
 inline bool find_bed_induction_sensor_point_xy(int verbosity_level)
 {
 	#ifdef SUPPORT_VERBOSITY
